@@ -15,6 +15,7 @@ lampsOff = 0
 
 gpio.setmode(gpio.BOARD)
 for i in lamps:
+    print(i)
     gpio.setup(i, gpio.OUT)
 
 def lamp(v, c, off):
