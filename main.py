@@ -17,6 +17,9 @@ gpio.setmode(gpio.BCM)
 for i in lamps:
     print(i)
     gpio.setup(i, gpio.OUT)
+    gpio.output(i, gpio.LOW)
+    time.sleep(0.1)
+time.sleep(1)
 
 def lamp(v, c, off):
     global lamps
