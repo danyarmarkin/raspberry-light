@@ -21,6 +21,7 @@ for i in lamps:
     time.sleep(0.1)
 time.sleep(1)
 
+# switch off lamps
 def lamp(v, c, off):
     global lamps
     d = v - c
@@ -43,8 +44,12 @@ def lamp(v, c, off):
             j -= len(lamps)
         gpio.output(lamps[j], gpio.LOW)
 
+
+session = requests.Session()
+
 while True:
-    r = requests.get('https://camera-scan-e5684-default-rtdb.europe-west1.firebasedatabase.app/compassData.json?print=pretty')
+    # get response from firebase of compass data
+    r = session.get('https://camera-scan-e5684-default-rtdb.europe-west1.firebasedatabase.app/compassData.json?print=pretty')
     responce = json.loads(r.text)
     try:
         print(responce["value"])
