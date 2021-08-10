@@ -48,4 +48,3 @@ while True:
     calibrate = int(responce["calibration"])
     lampsOff = int(responce["lampsOff"])
     lamp(value, calibrate, lampsOff)
-    time.sleep(0.005)
