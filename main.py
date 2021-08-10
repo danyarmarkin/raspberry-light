@@ -30,19 +30,24 @@ def lamp(v, c, off):
     l = floor(d / (360 / len(lamps)))
     if l >= len(lamps):
         l = len(lamps) - 1
-    for i in lamps:
-        gpio.output(i, gpio.HIGH)
+    # for i in lamps:
+    #     gpio.output(i, gpio.HIGH)
     print(l)
     ind = 0
     if off % 2 == 0:
         ind = 1
+    o = []
     for i in range(int(l - floor(off / 2 - ind)), int(l + floor(off / 2)) + 1, 1):
         j = i
         if j < 0:
             j += len(lamps)
         if j >= len(lamps):
             j -= len(lamps)
+        o.append(lamps[j])
         gpio.output(lamps[j], gpio.LOW)
+    for i in lamps:
+        if i not in o:
+            gpio.output(i, gpio.HIGH)
 
 
 session = requests.Session()
