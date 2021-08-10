@@ -46,8 +46,11 @@ def lamp(v, c, off):
 while True:
     r = requests.get('https://camera-scan-e5684-default-rtdb.europe-west1.firebasedatabase.app/compassData.json?print=pretty')
     responce = json.loads(r.text)
-    print(responce["value"])
-    value = int(responce["value"])
-    calibrate = int(responce["calibration"])
-    lampsOff = int(responce["lampsOff"])
-    lamp(value, calibrate, lampsOff)
+    try:
+        print(responce["value"])
+        value = int(responce["value"])
+        calibrate = int(responce["calibration"])
+        lampsOff = int(responce["lampsOff"])
+        lamp(value, calibrate, lampsOff)
+    except:
+        print("error")
