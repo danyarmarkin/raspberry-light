@@ -13,6 +13,7 @@ value = 0
 calibrate = 0
 lampsOff = 0
 
+gpio.setmode(gpio.BOARD)
 for i in lamps:
     gpio.setup(i, gpio.OUT)
 
