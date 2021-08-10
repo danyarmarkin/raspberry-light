@@ -32,7 +32,7 @@ def lamp(v, c, off):
     ind = 0
     if off % 2 == 0:
         ind = 1
-    for i in range(l - floor(off / 2 - ind), l + floor(off / 2), 1):
+    for i in range(int(l - floor(off / 2 - ind)), int(l + floor(off / 2)), 1):
         j = i
         if j < 0:
             j += len(lamps)
